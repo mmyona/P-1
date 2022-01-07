@@ -37,7 +37,6 @@ function historyRouterPush (pathName, el) {
   window.history.pushState({}, pathName, window.location.origin + pathName)
   renderHTML(el, routes[pathName])
 }
-
 // render
 function renderHTML (el, route) {
   el.innerHTML = route
@@ -47,3 +46,4 @@ module.exports = {
   initialRoutes,
   historyRouterPush
 } 
+
