@@ -1,27 +1,35 @@
 // template
+const aTemplate = require('./pages/자유.hbs')
+const bTemplate = require('./pages/비밀.hbs')
+const cTemplate = require('./pages/정보.hbs')
+const dTemplate = require('./pages/홍보.hbs')
+const eTemplate = require('./pages/SW.hbs')
 const homeTemplate = require('./pages/home.hbs')
-const aboutTemplate = require('./pages/about.hbs')
+const loginTemplate = require('./pages/login.hbs')
 
 const Home = homeTemplate()
-const About = aboutTemplate()
+const a= aTemplate()
+const b = bTemplate()
+const c = cTemplate()
+const d = dTemplate()
+const e = eTemplate()
+const login = loginTemplate()
 
 const routes = {
   '/': Home,
   '/home': Home,
-  '/about': About
+  '/자유': a,
+  '/비밀': b,
+  '/정보': c,
+  '/홍보': d,
+  '/SW': e,
+  '/login': login
 }
 
 // entry point
 function initialRoutes (mode, el) {
   renderHTML(el, routes['/'])
-
-  if (mode === 'history') {
-    window.onpopstate = () => renderHTML(el, routes[window.location.pathname])
-  } else {
-    window.addEventListener('hashchange', () => {
-      return renderHTML(el, getHashRoute())
-    })
-  }
+  window.onpopstate = () => renderHTML(el, routes[window.location.pathname])
 }
 
 // set browser history
@@ -29,25 +37,6 @@ function historyRouterPush (pathName, el) {
   window.history.pushState({}, pathName, window.location.origin + pathName)
   renderHTML(el, routes[pathName])
 }
-
-// get hash history route
-function getHashRoute () {
-  let route = '/'
-
-  Object.keys(routes).forEach(hashRoute => {
-    if (window.location.hash.replace('#', '') === hashRoute.replace('/', '')) {
-      route = routes[hashRoute]
-    }
-  })
-
-  return route
-}
-
-// set hash history
-function hashRouterPush (pathName, el) {
-  renderHTML(el, getHashRoute())
-}
-
 // render
 function renderHTML (el, route) {
   el.innerHTML = route
@@ -55,6 +44,6 @@ function renderHTML (el, route) {
 
 module.exports = {
   initialRoutes,
-  historyRouterPush,
-  hashRouterPush
-}
+  historyRouterPush
+} 
+

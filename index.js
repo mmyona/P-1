@@ -1,15 +1,24 @@
-// express server
-const express = require("express");
-const path = require("path");
 
-// express 사용
-const app = express();
+// css
+require('./css/style.css')
 
-app.use(express.static(__dirname+"/public"));
+// router
+const {
+  initialRoutes,
+  historyRouterPush,
+} = require('./router')
 
-app.get("/*", (req, res) => {
-    res.sendFile(__dirname+"index.html");
-});
+const historyAppDiv = document.querySelector('#history-app')
 
-// port 생성 서버 실행
-app.listen(process.env.PORT || 3000, () => console.log("Server running ....")) 
+// Browser History
+initialRoutes('history', historyAppDiv)
+
+window.onload = () => {
+  const historyLinker = document.querySelectorAll('span.history')
+  historyLinker.forEach(el => {
+    el.addEventListener('click', (evt) => {
+      const pathName = evt.target.getAttribute('route')
+      historyRouterPush(pathName, historyAppDiv)
+    })
+  })
+}
