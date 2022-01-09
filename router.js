@@ -32,6 +32,7 @@ function initialRoutes (mode, el) {
   if (mode === 'history') {
   window.onpopstate = () => renderHTML(el, routes[window.location.pathname])
   }
+
 }
 
 // set browser history
