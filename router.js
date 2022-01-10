@@ -33,12 +33,10 @@ const routes = {
 }
 
 // entry point
-function initialRoutes (mode, el) {
+function initialRoutes (el) {
   renderHTML(el, routes['/'])
-  if (mode === 'history') {
   window.onpopstate = () => renderHTML(el, routes[window.location.pathname])
   }
-}
 
 // set browser history
 function historyRouterPush (pathName, el) {
