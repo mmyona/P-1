@@ -2,6 +2,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
   }
 }
-

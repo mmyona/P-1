@@ -26,6 +26,7 @@ ul, li {
     letter-spacing: 0.05em;
     display: block;
     padding: 14px 100px;
+    line-height: 16px;
     border-right: 1px solid #045D8B;
     text-shadow: 1px 1px 1px #045D8B;
   }
