@@ -4,7 +4,7 @@ function login() {
     const chkPw = checkValidPassword(form);
 
     if (chkUsername) {
-        document.getElementById('alert_username').innerText = "";
+        document.getElementById('alert_username').innerText = ""; //공백일 경우
         form.username.style.border = '2px solid';
         form.username.style.borderColor = '#00D000';
     } else {

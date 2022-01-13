@@ -6,8 +6,9 @@ const dTemplate = require('./pages/홍보.hbs')
 const eTemplate = require('./pages/SW.hbs')
 const homeTemplate = require('./pages/home.hbs')
 const loginTemplate = require('./pages/login.hbs')
-const login2Template = require('./pages/login2.hbs')
 const signupTemplate = require('./pages/signup.hbs')
+const fTemplate = require('./pages/write.hbs')
+const gTemplate = require('./pages/read.hbs')
 
 const Home = homeTemplate()
 const a= aTemplate()
@@ -16,8 +17,9 @@ const c = cTemplate()
 const d = dTemplate()
 const e = eTemplate()
 const login = loginTemplate()
-const login2 = login2Template()
 const signup = signupTemplate()
+const f = fTemplate()
+const g = gTemplate()
 
 const routes = {
   '/': Home,
@@ -28,8 +30,9 @@ const routes = {
   '/홍보': d,
   '/SW': e,
   '/login': login,
-  '/login2': login2,
-  '/signup': signup
+  '/signup': signup,
+  '/write': f,
+  '/read' : g
 }
 
 // entry point
