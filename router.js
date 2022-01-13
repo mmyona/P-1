@@ -1,5 +1,5 @@
 // template
-const aTemplate = require('./pages/자유.hbs')
+const aTemplate = require('./views/list.ejs')
 const bTemplate = require('./pages/비밀.hbs')
 const cTemplate = require('./pages/정보.hbs')
 const dTemplate = require('./pages/홍보.hbs')
@@ -24,7 +24,7 @@ const g = gTemplate()
 const routes = {
   '/': Home,
   '/home': Home,
-  '/자유': a,
+  '/list': a,
   '/비밀': b,
   '/정보': c,
   '/홍보': d,
@@ -34,6 +34,22 @@ const routes = {
   '/write': f,
   '/read' : g
 }
+//sql 연결 라우터
+/*var express = require('express');
+var router = express.Router();
+var mysql_odbc = require('../db/db_conn')();
+var conn = mysql_odbc.init();
+ 
+ router.get('/list/:page', function(req, res, next) {
+    var page = req.params.page;
+    var sql = "select idx, name, title, date_format(modidate,'%Y-%m-%d %H:%i:%s') modidate, " +
+        "date_format(regdate,'%Y-%m-%d %H:%i:%s') regdate from board";
+    conn.query(sql, function (err, rows) {
+        if (err) console.error("err : " + err);
+        res.render('list', {title: '게시판 리스트', rows: rows});
+    });
+});
+module.exports = router;*/
 
 // entry point
 function initialRoutes (el) {
