@@ -1,5 +1,5 @@
 // template
-const aTemplate = require('./views/list.ejs')
+const aTemplate = require('./pages/자유.hbs')
 const bTemplate = require('./pages/비밀.hbs')
 const cTemplate = require('./pages/정보.hbs')
 const dTemplate = require('./pages/홍보.hbs')
@@ -24,7 +24,7 @@ const g = gTemplate()
 const routes = {
   '/': Home,
   '/home': Home,
-  '/list': a,
+  '/자유': a,
   '/비밀': b,
   '/정보': c,
   '/홍보': d,
